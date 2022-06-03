@@ -84,6 +84,13 @@ export default function Navbar() {
         </>
         )
     }
+    else if(role === 'panel member'){
+        return(
+        <>
+            {handleMenu(["Home", "User", "Document", "Groups"],["/home", "/user", "/document", "/group"])}
+        </>
+        )
+    }
     else{
         return (
         <>
