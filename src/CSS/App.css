@@ -1,0 +1,39 @@
+body{
+  margin: 0 auto;
+}
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e9bcb7;
+  background-image: linear-gradient(315deg, #e9bcb7 0%, #29524a 74%);
+}
+
+._btn {
+  display: flex;
+  justify-content: center;
+}
+._btn button {
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+  transition: 0.2s;
+  margin: 5px auto;
+  text-transform: uppercase;
+  color: #189cfc;
+  font-weight: bold;
+  border-radius: 3px;
+  text-decoration: none;
+}
+._btn:hover {
+  background: rgba(27, 156, 252, 0.1);
+  transform: scale(1.1);
+}
+._btn i {
+  margin-left: 20px;
+}
+
+
