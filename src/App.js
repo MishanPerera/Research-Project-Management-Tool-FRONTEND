@@ -1,16 +1,16 @@
 import React from "react";
-import './App.css';
+import './CSS/App.css';
 import {BrowserRouter as Router , Switch, Route} from 'react-router-dom';
 import {Paper, Typography} from '@mui/material';
 
-import LoginForm from "./Components/Admin/LoginForm";
+import LoginForm from "./Components/LoginForm";
 import RoleSelector from "./RoleSelector";
 //Implement Protected Route For the Components
 import ProtectedRoute from './ProtectedRoute';
-import AdminHome from "./Components/Admin/Home";
-import User from './Components/Admin/User'
-import Document from "./Components/Admin/Document";
-import Group from "./Components/Admin/Group";
+import AdminHome from "./Components/Home";
+import User from './Components/User'
+import Document from "./Components/Document";
+import Group from "./Components/Group";
 
 
 function App(){
