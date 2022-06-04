@@ -11,6 +11,8 @@ import AdminHome from "./Components/Home";
 import User from './Components/User'
 import Document from "./Components/Document";
 import Group from "./Components/Group";
+import Profile from "./Components/Profile";
+import Student from "./Components/Student";
 
 
 function App(){
@@ -25,6 +27,8 @@ function App(){
             <ProtectedRoute path='/user' exact component={User} auth={isAuth}/>
             <ProtectedRoute path='/document' exact component={Document} auth={isAuth}/>
             <ProtectedRoute path='/group' exact component={Group} auth={isAuth}/>
+            <ProtectedRoute path='/profile' exact component={Profile} auth={isAuth}/>
+            <ProtectedRoute path='/student' exact component={Student} auth={isAuth}/>
         </Switch>
     </Router>
     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
