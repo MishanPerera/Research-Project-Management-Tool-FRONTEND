@@ -7,6 +7,8 @@ import axios from 'axios'
 
 export default function Document() {
     const accessToken = sessionStorage.getItem('userToken');
+    const role = sessionStorage.getItem("userRole");
+
     let docType = {
         word: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         presentation: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
@@ -91,10 +93,13 @@ export default function Document() {
                             <td width="50%">{values.filename.split('+')[1].split('.')[0]}</td>
                             <td width="20%">{values.uploadDate.split('T')[0]} {values.uploadDate.split('T')[1].split('.')[0]}</td>
                             <td className='text-center' width="20%">
-                                <button type="button" className="btn btn-sm btn-rounded btn-danger m-2" onClick={()=>{
-                                    setFilename(values.filename);
-                                    handleDeleteOpen()
-                                }}>Delete</button>
+                                {
+                                    role==='admin'? <button type="button" className="btn btn-sm btn-rounded btn-danger m-2" onClick={()=>{
+                                        setFilename(values.filename);
+                                        handleDeleteOpen()
+                                    }}>Delete</button>: null
+                                }
+                                
                                 <button type="button" className="btn btn-sm btn-rounded btn-success m-2" onClick={()=>{
                                     setFilename(values.filename);
                                     handleDownloadOpen()
@@ -229,7 +234,8 @@ export default function Document() {
         })
     },[])
 
-    return (
+    if(role === 'admin'){
+        return (
         <>
         <Navbar/>
         <br/>
@@ -252,4 +258,27 @@ export default function Document() {
         {handleFileData()}
         </>
     )
+    }
+    else{
+        return (
+                <>
+                <Navbar/>
+                <br/>
+                <ToastContainer/>
+                <div className="row justify-content-between">
+                    <div className="col-4 m-2">
+                        <h3 className='text-start title'>Documents</h3>
+                    </div>
+                </div>
+                <br/>
+                <div className="row d-flex justify-content-center">
+                    {handleDocType("Word Template","word")}
+                    {handleDocType("Presentation Template","presentation")}
+                    {handleDocType("Marking Scheme","pdf")}
+                </div>
+                <br/>
+                {handleFileData()}
+                </>
+        )
+    }
 }
