@@ -25,7 +25,7 @@ export default function User() {
             Authorization: `Bearer ${accessToken}`
         }
     })
-
+//
     const [errors,setErrors]=useState({});
 
     const postData = ()=>{
