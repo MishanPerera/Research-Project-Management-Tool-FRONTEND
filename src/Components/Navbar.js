@@ -67,6 +67,9 @@ export default function Navbar() {
                     <Typography variant="h6" noWrap component="a" href={link[3]} sx={{ m: 2, flexGrow: 1, letterSpacing: '.2rem', color: 'inherit', textDecoration: 'none'}}>
                     {menu[3]}
                     </Typography>
+                    <Typography variant="h6" noWrap component="a" href={link[4]} sx={{ m: 2, flexGrow: 1, letterSpacing: '.2rem', color: 'inherit', textDecoration: 'none'}}>
+                    {menu[4]}
+                    </Typography>
                 </Container>
                 <input type='submit' className='btn btn-danger btn-rounded m-2' onClick={handleOpen} value='Logout'/>
             </Toolbar>
@@ -80,14 +83,28 @@ export default function Navbar() {
     if(role === 'admin'){
         return(
         <>
-            {handleMenu(["Home", "User", "Document", "Groups"],["/home", "/user", "/document", "/group"])}
+            {handleMenu(["Home", "User", "Document", "Groups", "Profile"],["/home", "/user", "/document", "/group", "/profile"])}
+        </>
+        )
+    }
+    else if(role === 'supervisor'){
+        return(
+        <>
+            {handleMenu(["Home", "Document", "Groups", "Student", "Profile"],["/home", "/document", "/group", "/student", "/profile"])}
+        </>
+        )
+    }
+    else if(role === 'panel member'){
+        return(
+        <>
+            {handleMenu(["Home", "Document", "Groups", "Student", "Profile"],["/home", "/document", "/group", "/student", "/profile"])}
         </>
         )
     }
     else{
         return (
         <>
-            {handleMenu(["Home", "User", "Document", "Groups"],["/home", "/user", "/document", "/group"])}
+            {handleMenu(["Home", "Document", "Groups","Student", "Profile"],["/home", "/document", "/group", "/student", "/profile"])}
         </>
         );
     }
